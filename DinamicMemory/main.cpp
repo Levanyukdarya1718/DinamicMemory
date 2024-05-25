@@ -147,7 +147,7 @@ void main()
 
 	cout << "Введите позицию удаляемого столбцв:"; cin >> index;
 	erase_col(arr, rows, cols, index);
-
+	Print(arr, rows, cols);
 
 	Clear(arr, rows);
 
@@ -427,9 +427,9 @@ void erase_col(int** arr,const int rows, int& cols, int position)
 {
 	for (int i = 0; i < rows; i++)
 	{
-		int* buffer = new int[cols--];
+		int* buffer = new int[cols-1];
 		for (int j = 0; j < position; j++)buffer[j] = arr[i][j];
-		for (int j = position; j < cols; j++)buffer[j] = arr[i][j];
+		for (int j = position; j < cols; j++)buffer[j] = arr[i][j+1];
 		delete[]arr[i];
 		arr[i] = buffer;
 	}
